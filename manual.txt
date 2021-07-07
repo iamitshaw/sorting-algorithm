@@ -1,0 +1,41 @@
+#include "recursive.h"
+
+/* manual input of array elements */
+int main(int argc, char* argv[]) {
+
+    /* get array_size */
+    std::cout << "\nEnter the array size:";
+    size_t array_size;
+    std::cin >> array_size;
+
+    /* get array elements */
+    std::cout << "Enter array elements:";
+
+    /* allocate memory to store array elements */
+    auto* array = new int64_t[array_size];
+
+    /* read array elements */
+    for (size_t i{0}; i < array_size; i+=1) {
+        std::cin >> array[i];
+    }
+
+    /* print original array elements */
+    std::cout << "\nArray elements:" << std::endl;
+    for (ssize_t i{0}; i < array_size; i++) {
+        std::cout << array[i] << " ";
+    }
+
+    /* sort array elements */
+    bubble_sort(array, array_size);
+
+    /* print sorted array elements */
+    std::cout << "\nSorted elements:" << std::endl;
+    for (ssize_t i{0}; i < array_size; i++) {
+        std::cout << array[i] << " ";
+    }
+
+    /* de-allocate heap memory */
+    delete [] array;
+
+    return 0;
+}
